@@ -1,22 +1,111 @@
 <template>
   <div id="app">
+    <h1>mmcs meetups <span style="color:#E91E63">♥</span></h1>
 
+    <section class="news">
+      <event v-for="event in events" :e="event"/>
+    </section>
+
+    <section class="outdated" style="background-color: #fafafa; margin-top: 3em">
+      <event v-for="event in outdated" :e="event"/>
+    </section>
   </div>
 </template>
 
 <script>
+import Event from '@/components/Event'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: { Event },
+  data: () => ({
+    outdated: [
+      {
+        link: '',
+        color: '#87ca60',
+        title: 'Распознавание речи на основе скрытых марковских моделей',
+        date: '20.02.2016 17:30 [212 ауд.]',
+        prelude: `
+          Мы обсудили алгоритмы обучения СММ и проблемы в распознавании речи.
+          Почти ничего не было понятно, но зато мы написали красивое решение-однострочник,
+          так что теперь можно смело начинать заниматься областью.
+
+          <a style="color:#5a8d3c" href="http://forum.mmcs.sfedu.ru/t/seminar-ko-kompyuternomu-zreniyu-i-obrabotke-izobrazhenij/678/56">
+            Материалы к семинару</a>.
+
+          <div class="img" style="background-image: url(https://pbs.twimg.com/media/C5H9B0MWIAMtcSa.jpg:large)"></div>
+          <div style="text-align:center"><i>то самое решение</i></div>
+        `,
+        authors: [
+          { name: 'Дмитрий Свиридкин', ava: 'https://pbs.twimg.com/profile_images/826897257689649154/JWf5zVTT.jpg' }
+        ]
+      }
+    ],
+    events: [
+      {
+        link: '#cat',
+        color: '#cdcdcd',
+        title: 'Теория Категорий',
+        date: '3.03.16 16:30',
+        prelude: `
+          Курс посвящён абстрактной фигне, которую никто никак не сможет применить в реальной жизни.
+          Будет полезно, но это не точно.
+        `,
+        text: `
+          Есть возможность официально сдавать зачёт или экзамен (по желанию слушателя).
+          Для этого необходимо написать заявление в деканат.
+        `,
+        authors: [
+          { name: 'Виталий Брагилевский', ava: 'http://compsciclub.ru/media/cache/eb/74/eb744370ecdcc277036c108e12cc8794.jpg' },
+          { name: 'Денис Загумённов', ava: 'https://pbs.twimg.com/profile_images/2586456123/0msx978pkihz2xo7k9hu.jpeg' }
+        ]
+      },
+
+      {
+        link: '#datascience',
+        color: '#29b6f6',
+        title: 'Data Science Meetup',
+        date: '4.03.16 16:00',
+        prelude: `
+          Всего будет четыре доклада, один из которых для новичков,
+          поэтому туса мехмата собирается там.
+          Подробнее: <a href="http://vk.com/dsmt61">vk.com/dsmt61</a>.
+        `
+      }
+    ]
+  })
 }
 </script>
 
+<style scoped>
+  h1 {
+    font-family: Lora, Roboto, serif;
+    padding: 0 0.5em;
+    font-size: 2em;
+  }
+</style>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  * { box-sizing: inherit; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    border-top: 6px solid #ade3e6; /*#c8e6ad;*/
+  }
+
+  #app {
+    font-family: 'PT Sans', sans-serif;
+    color: #444;
+  }
+
+  a {
+    color: #2196f3;
+    text-decoration: none;
+    cursor: pointer;
+  }
 </style>
