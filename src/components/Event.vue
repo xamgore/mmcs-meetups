@@ -62,7 +62,13 @@ export default {
     border-left: 5px solid #dedede;
     padding: 0.5em 1em 0.7em;
     margin-top: 2em;
-    max-width: 375px;
+    /*max-width: 400px;*/
+  }
+
+  @media screen and (min-width: 500px) {
+    .event {
+      max-width: 500px;
+    }
   }
 
   /*.event:hover {

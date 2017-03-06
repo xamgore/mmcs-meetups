@@ -6,8 +6,8 @@
       <event v-for="event in events" :e="event"/>
     </section>
 
-    <section class="outdated" style="background-color: #fafafa; margin-top: 3em">
-      <event v-for="event in outdated" :e="event"/>
+    <section class="outdated" style="margin-top: 3em">
+      <event v-for="event in outdated" :e="event" style="background-color:#fafafa"/>
     </section>
   </div>
 </template>
@@ -101,6 +101,16 @@ export default {
   #app {
     font-family: 'PT Sans', sans-serif;
     color: #444;
+  }
+
+  @media screen and (min-width: 500px) {
+      #app {
+          margin-left: 5%;
+      }
+
+      article {
+          font-size: 1.1em;
+      }
   }
 
   a {
