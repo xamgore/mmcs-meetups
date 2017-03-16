@@ -29,4 +29,9 @@
   .outdated {
     margin-top: 5em
   }
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+  }
 </style>

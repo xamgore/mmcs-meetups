@@ -46,13 +46,20 @@
     border-left: 5px solid #c8e6ad;
     padding: 0.5em 1em 0.7em;
     margin-top: 2em;
-    /*max-width: 400px;*/
+    margin-bottom: auto;
   }
 
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 450px) {
     article {
-      max-width: 500px;
+      max-width: 440px;
       font-size: 1.1em;
+    }
+  }
+
+  @media screen and (min-width: 910px) {
+    article {
+      max-width: 400px;
+      margin-right: 5%;
     }
   }
 
