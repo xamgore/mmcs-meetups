@@ -1,6 +1,5 @@
 <template>
-  <article :id="e.link" :class="['event', { compactly }]"
-           :style="{ 'border-left-color': e.color }">
+  <article :id="e.link" :class="[e.theme, { compactly }]">
 
     <header>
       <e-title :title="e.title" :date="e.date"/>
@@ -41,22 +40,20 @@
 </style>
 
 <style scoped>
-  .event {
-    border-left: 5px solid #dedede;
+  @import ".colors.css";
+
+  article {
+    border-left: 5px solid #c8e6ad;
     padding: 0.5em 1em 0.7em;
     margin-top: 2em;
     /*max-width: 400px;*/
   }
 
   @media screen and (min-width: 500px) {
-    .event {
+    article {
       max-width: 500px;
     }
   }
-
-  /*.event:hover {
-    background-color: #f9f9f9
-  }*/
 
   header {
     margin-bottom: 1rem;

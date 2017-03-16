@@ -22,7 +22,7 @@
       outdated: [
         {
           link: '',
-          color: '#87ca60',
+          color: 'green',
           title: 'Распознавание речи на основе скрытых марковских моделей',
           date: '20.02.2016 17:30 [212 ауд.]',
           annotation: `
@@ -30,7 +30,7 @@
           Почти ничего не было понятно, но зато мы написали красивое решение-однострочник,
           так что теперь можно смело начинать заниматься областью.
 
-          <a style="color:#5a8d3c" href="http://forum.mmcs.sfedu.ru/t/seminar-ko-kompyuternomu-zreniyu-i-obrabotke-izobrazhenij/678/56">
+          <a href="http://forum.mmcs.sfedu.ru/t/seminar-ko-kompyuternomu-zreniyu-i-obrabotke-izobrazhenij/678/56">
             Материалы к семинару</a>.
 
           <div class="img" style="background-image: url(https://pbs.twimg.com/media/C5H9B0MWIAMtcSa.jpg:large)"></div>
@@ -44,7 +44,7 @@
       events: [
         {
           link: '#cat',
-          color: '#cdcdcd',
+          theme: 'gray',
           title: 'Теория Категорий',
           date: '3.03.16 16:30',
           annotation: `
@@ -69,7 +69,7 @@
 
         {
           link: '#datascience',
-          color: '#29b6f6',
+          theme: 'blue',
           title: 'Data Science Meetup',
           date: '4.03.16 16:00',
           annotation: `
@@ -133,8 +133,12 @@
   }
 
   a {
-    color: #2196f3;
+    color: #679e37;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  a:hover,a:focus,a:active {
+    text-decoration: underline;
   }
 </style>
