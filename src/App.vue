@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>mmcs meetups <span style="color:#E91E63">♥</span></h1>
+    <h1>mmcs meetups</h1>
 
     <section class="news">
       <event v-for="event in events" :e="event"/>
@@ -88,6 +88,11 @@
     font-family: Lora, Roboto, serif;
     padding: 0 0.5em;
     font-size: 2em;
+  }
+
+  h1:after {
+    content: ' ♥';
+    color: #E91E63;
   }
 
   .outdated:first-child {
