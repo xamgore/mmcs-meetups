@@ -95,8 +95,8 @@
     color: #E91E63;
   }
 
-  .outdated:first-child {
-    margin-top: 3em
+  .outdated {
+    margin-top: 5em
   }
 </style>
 
