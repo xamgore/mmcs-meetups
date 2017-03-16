@@ -33,6 +33,8 @@
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    background-color: #fff;
+    border: 1px solid #ccc;
     border-radius: 50%;
     margin-right: 0.5em;
   }
