@@ -52,6 +52,7 @@
   @media screen and (min-width: 500px) {
     article {
       max-width: 500px;
+      font-size: 1.1em;
     }
   }
 

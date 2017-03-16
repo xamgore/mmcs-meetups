@@ -1,15 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import EventPage from '@/components/event/Page'
+import MainPage from '@/components/main/Page'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  scrollBehavior: () => ({ y: 0 }),
   routes: [
+
+    {
+      path: '/:id',
+      name: 'event',
+      component: EventPage
+    },
+
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'main',
+      component: MainPage
     }
   ]
 })

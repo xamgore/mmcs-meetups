@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <a :href="url" v-text="title" class="title"/>
+    <router-link :to="url" v-text="title" class="title"/>
     <span v-text="fullDate" class="date"/>
   </div>
 

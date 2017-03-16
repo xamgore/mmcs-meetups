@@ -1,27 +1,14 @@
 <template>
   <div id="app">
     <h1>mmcs meetups</h1>
-
-    <section class="news">
-      <event v-for="event in events" :e="event"/>
-    </section>
-
-    <section class="outdated">
-      <event v-for="event in outdated" :e="event" style="background-color:#fafafa"/>
-    </section>
+    
+    <router-view/>
   </div>
 </template>
 
 <script>
-  import Event from '@/components/event/.Event'
-  import Api from './api'
-
   export default {
-    name: 'app',
-    components: { Event },
-    created() {
-      Object.assign(this, Api.getData())
-    }
+    name: 'app'
   }
 </script>
 
@@ -35,10 +22,6 @@
   h1:after {
     content: ' ♥';
     color: #E91E63;
-  }
-
-  .outdated {
-    margin-top: 5em
   }
 </style>
 
@@ -67,10 +50,6 @@
     #app {
       margin-left: 5%;
       margin-bottom: 3em;
-    }
-
-    article {
-      font-size: 1.1em;
     }
   }
 
