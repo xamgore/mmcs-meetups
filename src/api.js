@@ -23,7 +23,7 @@ const data = {
   ],
   events: [
     {
-      link: '#cat',
+      link: 'cat',
       theme: 'gray',
       title: 'Теория Категорий',
       date: '3.03.16 16:30',
@@ -48,7 +48,7 @@ const data = {
     },
 
     {
-      link: '#datascience',
+      link: 'data science',
       theme: 'blue',
       title: 'Data Science Meetup',
       date: '4.03.16 16:00',

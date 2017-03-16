@@ -1,8 +1,8 @@
 <template>
-  <article :id="e.link" :class="[e.theme, { compactly }]">
+  <article :class="[e.theme, { compactly }]">
 
     <header>
-      <e-title :title="e.title" :date="e.date"/>
+      <e-title :title="e.title" :date="e.date" :link="e.link"/>
     </header>
 
     <e-content v-if="hasContent" :annotation="e.annotation" :text="e.text"/>
