@@ -6,26 +6,26 @@
       <event v-for="event in events" :e="event"/>
     </section>
 
-    <section class="outdated" style="margin-top: 3em">
+    <section class="outdated">
       <event v-for="event in outdated" :e="event" style="background-color:#fafafa"/>
     </section>
   </div>
 </template>
 
 <script>
-import Event from '@/components/Event'
+  import Event from '@/components/event/.Event'
 
-export default {
-  name: 'app',
-  components: { Event },
-  data: () => ({
-    outdated: [
-      {
-        link: '',
-        color: '#87ca60',
-        title: 'Распознавание речи на основе скрытых марковских моделей',
-        date: '20.02.2016 17:30 [212 ауд.]',
-        prelude: `
+  export default {
+    name: 'app',
+    components: { Event },
+    data: () => ({
+      outdated: [
+        {
+          link: '',
+          color: '#87ca60',
+          title: 'Распознавание речи на основе скрытых марковских моделей',
+          date: '20.02.2016 17:30 [212 ауд.]',
+          annotation: `
           Мы обсудили алгоритмы обучения СММ и проблемы в распознавании речи.
           Почти ничего не было понятно, но зато мы написали красивое решение-однострочник,
           так что теперь можно смело начинать заниматься областью.
@@ -36,45 +36,51 @@ export default {
           <div class="img" style="background-image: url(https://pbs.twimg.com/media/C5H9B0MWIAMtcSa.jpg:large)"></div>
           <div style="text-align:center"><i>то самое решение</i></div>
         `,
-        authors: [
-          { name: 'Дмитрий Свиридкин', ava: 'https://pbs.twimg.com/profile_images/826897257689649154/JWf5zVTT.jpg' }
-        ]
-      }
-    ],
-    events: [
-      {
-        link: '#cat',
-        color: '#cdcdcd',
-        title: 'Теория Категорий',
-        date: '3.03.16 16:30',
-        prelude: `
+          authors: [
+            { name: 'Дмитрий Свиридкин', ava: 'https://pbs.twimg.com/profile_images/826897257689649154/JWf5zVTT.jpg' }
+          ]
+        }
+      ],
+      events: [
+        {
+          link: '#cat',
+          color: '#cdcdcd',
+          title: 'Теория Категорий',
+          date: '3.03.16 16:30',
+          annotation: `
           Курс посвящён абстрактной фигне, которую никто никак не сможет применить в реальной жизни.
           Будет полезно, но это не точно.
         `,
-        text: `
+          text: `
           Есть возможность официально сдавать зачёт или экзамен (по желанию слушателя).
           Для этого необходимо написать заявление в деканат.
         `,
-        authors: [
-          { name: 'Виталий Брагилевский', ava: 'http://compsciclub.ru/media/cache/eb/74/eb744370ecdcc277036c108e12cc8794.jpg' },
-          { name: 'Денис Загумённов', ava: 'https://pbs.twimg.com/profile_images/2586456123/0msx978pkihz2xo7k9hu.jpeg' }
-        ]
-      },
+          authors: [
+            {
+              name: 'Виталий Брагилевский',
+              ava: 'http://compsciclub.ru/media/cache/eb/74/eb744370ecdcc277036c108e12cc8794.jpg'
+            },
+            {
+              name: 'Денис Загумённов',
+              ava: 'https://pbs.twimg.com/profile_images/2586456123/0msx978pkihz2xo7k9hu.jpeg'
+            }
+          ]
+        },
 
-      {
-        link: '#datascience',
-        color: '#29b6f6',
-        title: 'Data Science Meetup',
-        date: '4.03.16 16:00',
-        prelude: `
+        {
+          link: '#datascience',
+          color: '#29b6f6',
+          title: 'Data Science Meetup',
+          date: '4.03.16 16:00',
+          annotation: `
           Всего будет четыре доклада, один из которых для новичков,
           поэтому туса мехмата собирается там.
           Подробнее: <a href="http://vk.com/dsmt61">vk.com/dsmt61</a>.
         `
-      }
-    ]
-  })
-}
+        }
+      ]
+    })
+  }
 </script>
 
 <style scoped>
@@ -83,10 +89,16 @@ export default {
     padding: 0 0.5em;
     font-size: 2em;
   }
+
+  .outdated:first-child {
+    margin-top: 3em
+  }
 </style>
 
 <style>
-  * { box-sizing: inherit; }
+  * {
+    box-sizing: inherit;
+  }
 
   html, body {
     margin: 0;
@@ -99,18 +111,19 @@ export default {
   }
 
   #app {
-    font-family: 'PT Sans', sans-serif;
     color: #444;
+    font-family: 'PT Sans', sans-serif;
+    margin-bottom: 3em;
   }
 
   @media screen and (min-width: 500px) {
-      #app {
-          margin-left: 5%;
-      }
+    #app {
+      margin-left: 5%;
+    }
 
-      article {
-          font-size: 1.1em;
-      }
+    article {
+      font-size: 1.1em;
+    }
   }
 
   a {
