@@ -1,12 +1,15 @@
 <template>
   <div>
-    some event
+    Event id: {{ $route.params.id }}
   </div>
 </template>
 
 <script>
   export default {
-    name: 'event-page'
+    name: 'event-page',
+    created() {
+      console.log(this.$route)
+    }
   }
 </script>
 
