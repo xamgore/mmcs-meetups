@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import { transliterate } from './translit'
+  import { transliterate } from '../translit'
 
   export default {
     name: 'e-title',

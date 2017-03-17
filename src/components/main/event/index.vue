@@ -15,9 +15,9 @@
 </template>
 
 <script>
-  import eTitle from './Title'
-  import eAuthors from './Authors'
-  import eContent from './Content'
+  import eTitle from './parts/title'
+  import eAuthors from './parts/authors'
+  import eContent from './parts/content'
 
   export default {
     name: 'event',
@@ -40,7 +40,7 @@
 </style>
 
 <style scoped>
-  @import ".colors.css";
+  @import "themes.css";
 
   article {
     border-left: 5px solid #c8e6ad;

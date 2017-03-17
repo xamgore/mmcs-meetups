@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import EventPage from '@/components/event/Page'
-import MainPage from '@/components/main/Page'
+import EventPage from '@/components/event'
+import MainPage from '@/components/main'
 
 Vue.use(Router)
 
