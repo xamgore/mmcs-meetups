@@ -13,8 +13,8 @@
 </template>
 
 <script>
-  import Event from './event'
-  import Api from '@/api'
+  import Event from '../event/index'
+  import Api from '../../api'
 
   export default {
     name: 'main-page',

@@ -1,7 +1,9 @@
 <template>
 
   <div>
-    <router-link :to="url" v-text="title" class="title"/>
+    <router-link v-if="link" :to="link" v-text="title"/>
+    <span v-else v-text="title"/>
+
     <span v-text="fullDate" class="date"/>
   </div>
 
@@ -14,13 +16,13 @@
     name: 'e-title',
     props: ['title', 'date', 'link'],
     computed: {
-      url() {
-        let phrase = this.link || this.title || 'meetup'
-        let string = phrase.split(' ').slice(0, 2).join('-').toLowerCase()
-        let hash = this.date.replace(/(\.|\s.*)/g, '')
-
-        return `${transliterate(string)}-${hash}`
-      },
+//      url() {
+//        let phrase = this.link || this.title || 'meetup'
+//        let string = phrase.split(' ').slice(0, 2).join('-').toLowerCase()
+//        let hash = this.date.replace(/(\.|\s.*)/g, '')
+//
+//        return `${transliterate(string)}-${hash}`
+//      },
 
       fullDate() {
         const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
@@ -41,11 +43,6 @@
     font-size: 1.25em;
     font-weight: normal;
     font-family: 'Roboto Slab', serif;
-  }
-
-  .title {
-    /* uncomment to get gray color */
-    /*color: inherit;*/
   }
 
   .date {

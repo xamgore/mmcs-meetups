@@ -1,9 +1,9 @@
 <template>
-  <div @click="toggleText" >
+  <div @click="toggleText">
 
-    <p v-html="annotation" :class="['prelude', { offerMoreText }]"/>
+    <p v-html="text" :class="['prelude', { offerMoreText }]"/>
 
-    <p v-if="expanded && text" v-html="text" class="text"/>
+    <p v-if="crop && expanded && text" v-html="text" class="text"/>
 
   </div>
 </template>
@@ -11,7 +11,7 @@
 <script>
   export default {
     name: 'e-content',
-    props: ['text', 'annotation'],
+    props: ['text', 'crop'],
     data: () => ({ expanded: false }),
 
     methods: {
@@ -19,7 +19,7 @@
     },
 
     computed: {
-      offerMoreText() { return this.text && !this.expanded }
+      offerMoreText() { return this.crop && this.text && !this.expanded }
     }
   }
 </script>

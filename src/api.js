@@ -32,7 +32,22 @@ const data = {
           Будет полезно, но это не точно.
         `,
       text: `
-          Есть возможность официально сдавать зачёт или экзамен (по желанию слушателя).
+          <img style="height:100px;margin-right:0.8em;float:left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Commutative_diagram_for_morphism.svg/200px-Commutative_diagram_for_morphism.svg.png"/>
+          Мы обзорно рассмотрим раздел математики, изучающий свойства отношений
+          между математическими объектами, которые не зависят от внутренней структуры
+          этих объектов.
+          
+          Теория категорий занимает центральное место в современной математике, она также 
+          нашла применения в информатике, логике и в теоретической физике. Общекатегорийные
+          понятия также активно используются в языке функционального программирования <i>Haskell</i>.
+          
+          <h6 style="margin:0;padding:0;font-size:1em">Курс опирается на две книги:</h6>
+          <ul style="margin: 0.5em 0 0;display:inline-block">
+            <li>Category Theory (by Steve Awodey)</li>
+            <li>Category Theory (by Steve Awodey)</li>
+          </ul>
+
+          Есть возможность официально сдавать зачёт или экзамен (по&nbsp;желанию слушателя).
           Для этого необходимо написать заявление в деканат.
         `,
       authors: [
@@ -43,6 +58,76 @@ const data = {
         {
           name: 'Денис Загумённов',
           ava: 'https://pbs.twimg.com/profile_images/2586456123/0msx978pkihz2xo7k9hu.jpeg'
+        }
+      ],
+      attendees: [
+        {
+          name: 'Артём Пеленицын',
+          ava: 'https://pbs.twimg.com/profile_images/393613739/________bigger.jpg'
+        },
+        {
+          name: 'Денис Мирзоев',
+          ava: 'https://pbs.twimg.com/profile_images/560171941974126592/nZ-zs_8a_bigger.jpeg'
+        },
+        {
+          name: 'Всеволод Квачёв',
+          ava: 'https://pbs.twimg.com/profile_images/703992223629709312/HfB1HT-Q_bigger.jpg'
+        },
+        {
+          name: 'Георгий Лукьянов',
+          ava: 'https://pbs.twimg.com/profile_images/757847164403851268/Ur4cy0Da_bigger.jpg'
+        },
+        {
+          name: 'Яна Демьяненко',
+          ava: 'https://pbs.twimg.com/profile_images/526408711594467328/6KJyezCR_bigger.png'
+        },
+        {
+          name: 'Илья Варламов',
+          ava: 'https://pbs.twimg.com/profile_images/591502306971004928/5LKyq1_L_bigger.jpg'
+        },
+        {
+          name: 'Анатолий Прилютский',
+          ava: 'https://pbs.twimg.com/profile_images/694436245527724032/atNM2g1P_bigger.jpg'
+        },
+        {
+          name: 'Бартош Милевский',
+          ava: 'https://pbs.twimg.com/profile_images/1000136690/IslandBartosz_bigger.JPG'
+        },
+        {
+          name: 'Дмитрий Свиридкин',
+          ava: 'https://pbs.twimg.com/profile_images/838796547999612928/-vm0f_xL_bigger.jpg'
+        },
+        {
+          name: 'Илья Мурадьян',
+          ava: 'https://pbs.twimg.com/profile_images/729375035631218688/pI2h_8-p_bigger.jpg'
+        },
+        {
+          name: 'Тихон Белоушко',
+          ava: 'https://pbs.twimg.com/profile_images/721417643903827968/RJkOcK0X_bigger.jpg'
+        },
+        {
+          name: 'Роман Чепляка',
+          ava: 'https://pbs.twimg.com/profile_images/458731352758579200/TSideAqh_bigger.jpeg'
+        },
+        {
+          name: 'Александр',
+          ava: 'https://pbs.twimg.com/profile_images/823859625112039425/z6Q8kq20_bigger.jpg'
+        },
+        {
+          name: 'Михаил Бочкарёв',
+          ava: 'https://pbs.twimg.com/profile_images/823334889521106944/RTOq0xfV_bigger.jpg'
+        },
+        {
+          name: 'Алексей Головешкин',
+          ava: 'https://pbs.twimg.com/profile_images/378800000746137548/5039255f3a222c2a89c0598fc6e4fbd9_bigger.jpeg'
+        },
+        {
+          name: 'Евгений Пшеничный',
+          ava: 'https://pbs.twimg.com/profile_images/691216526981070848/DSM41MZ__bigger.jpg'
+        },
+        {
+          name: 'Андрей Руденец',
+          ava: 'https://pbs.twimg.com/profile_images/792065837582671872/pkibPV44_bigger.jpg'
         }
       ]
     },
