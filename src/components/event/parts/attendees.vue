@@ -1,7 +1,12 @@
 <template>
   <div class="author">
-    <div v-for="a in shuffled" :title="a.name" class="ava" :style="{ 'background-image': url(a.ava) }"/>
+
+    <div v-for="a in shuffled" :title="a.name" class="ava" :style="{ 'background-image': url(a.ava) }">
+      <img :src="a.ava" alt=""/>
+    </div>
+
     <span style="margin-left:0.8em">и ещё {{ left }} человек</span>
+
   </div>
 </template>
 
@@ -54,5 +59,13 @@
 
   @media screen and (max-width: 320px) {
     .ava { margin-right: -0.25em }
+  }
+
+  .ava img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    opacity: 0;
   }
 </style>

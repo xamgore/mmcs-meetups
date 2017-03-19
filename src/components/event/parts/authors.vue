@@ -1,8 +1,13 @@
 <template>
   <div>
     <div v-for="a in authors" class="author">
-      <div class="ava" :style="{ 'background-image': url(a.ava) }"/>
+
+      <div class="ava" :style="{ 'background-image': url(a.ava) }">
+        <img :src="a.ava" alt=""/>
+      </div>
+
       <span v-text="a.name"/>
+
     </div>
   </div>
 </template>
@@ -27,8 +32,8 @@
   }
 
   .ava {
-    width: 1.6em;
-    height: 1.6em;
+    width: 1.8em;
+    height: 1.8em;
     display: inline-block;
     background-size: cover;
     background-position: 50% 50%;
@@ -36,6 +41,14 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 50%;
-    margin-right: 0.5em;
+    margin-right: 0.4em;
+  }
+
+  .ava img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    opacity: 0;
   }
 </style>

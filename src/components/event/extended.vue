@@ -54,11 +54,6 @@
     background-size: cover;
     background-position: 50% 50%;
   }
-
-  .ava {
-    width: 1.8em !important;
-    height: 1.8em !important;
-  }
 </style>
 
 <style scoped>
