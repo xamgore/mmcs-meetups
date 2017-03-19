@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <h1>mmcs meetups</h1>
-    
+    <h1>
+      <router-link to="/" :tag="atMain ? 'span' : 'a'" v-text="'mmcs meetups'"/>
+    </h1>
+
     <router-view/>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'app'
+    name: 'app',
+    computed: {
+      atMain() { return this.$route.name === 'main' }
+    }
   }
 </script>
 
@@ -61,5 +66,9 @@
 
   a:hover,a:focus,a:active {
     text-decoration: underline;
+  }
+
+  h1 a {
+    color: inherit;
   }
 </style>
