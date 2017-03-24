@@ -1,11 +1,5 @@
-.gray { --border: #cdcdcd; --text: #959595 }
-.gray { border-left-color: var(--border) !important }
-.gray a { color: var(--text) }
-
+.gray { --border: #cdcdcd; --text: #777 /*#959595*/ }
 .blue { --border: #29b6f6; --text: #2196f3 }
-.blue { border-left-color: var(--border) !important }
-.blue a { color: var(--text) }
-
 .green { --border: #87ca60; --text: #5a8d3c }
-.green { border-left-color: var(--border) !important }
-.green a { color: var(--text) }
+.orange { --border: #ff9800; --text: #fb8c00 }
+.yellow { --border: #ffeb3b; --text: #333 }

@@ -38,7 +38,7 @@
     components: { eTitle, eContent, eAuthors, eAttendees },
     data: () => ({ e: null }),
     computed: {
-      text() { return this.e.text.trim().replace(/\s*\n\s*\n\s*/g, '<br><br>') }
+      text() { console.log(this.e); return this.e.text.trim().replace(/\s*\n\s*\n\s*/g, '<br><br>') }
     },
     created() {
       this.e = api.getData().events[0]
@@ -65,6 +65,7 @@
     margin-top: 2em;
     margin-bottom: auto;
     max-width: 550px !important;
+    /*margin-bottom: 3em;*/
   }
 
   @media screen and (min-width: 450px) {

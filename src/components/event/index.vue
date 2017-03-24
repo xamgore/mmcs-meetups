@@ -1,15 +1,11 @@
 <template>
-  <article :class="[e.theme, { compactly }]">
+  <article :class="[e.theme, { compactly, outdated }]">
 
     <header>
-      <e-title :title="e.title" :date="e.date" :link="e.link"/>
+      <e-title :title="e.title" :date="e.date" :noTime="outdated" :link="e.link"/>
     </header>
 
     <e-content v-if="hasContent" :text="e.annotation"/>
-
-    <footer v-if="e.authors" class="info">
-      <e-authors :authors="e.authors"/>
-    </footer>
 
   </article>
 </template>
@@ -21,11 +17,12 @@
 
   export default {
     name: 'event',
-    props: ['e'],
+    props: ['e', 'isOutdated'],
     components: { eTitle, eAuthors, eContent },
     computed: {
       compactly() { return !this.e.authors },
-      hasContent() { return this.e.text || this.e.annotation }
+      hasContent() { return this.e.text || this.e.annotation },
+      outdated() { return typeof this.isOutdated !== 'undefined' }
     }
   }
 </script>
@@ -37,6 +34,12 @@
     background-size: cover;
     background-position: 50% 50%;
   }
+
+  a { color: var(--text) }
+
+  a:hover, a:focus, a:active {
+    text-decoration-color: var(--border)
+  }
 </style>
 
 <style scoped>
@@ -44,6 +47,7 @@
 
   article {
     border-left: 5px solid #c8e6ad;
+    border-left-color: var(--border);
     padding: 0.5em 1em 0.7em;
     margin-top: 2em;
     margin-bottom: auto;
@@ -62,6 +66,8 @@
       margin-right: 5%;
     }
   }
+
+  .outdated { background-color: #fafafa }
 
   header {
     margin-bottom: 1rem;

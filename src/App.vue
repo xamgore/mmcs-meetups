@@ -48,14 +48,10 @@
   #app {
     color: #444;
     font-family: 'PT Sans', sans-serif;
-    margin-bottom: 0;
   }
 
   @media screen and (min-width: 500px) {
-    #app {
-      margin-left: 5%;
-      margin-bottom: 3em;
-    }
+    #app { margin-left: 5% }
   }
 
   a {

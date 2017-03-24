@@ -14,7 +14,7 @@
 
   export default {
     name: 'e-title',
-    props: ['title', 'date', 'link'],
+    props: ['title', 'date', 'link', 'no-time'],
     computed: {
 //      url() {
 //        let phrase = this.link || this.title || 'meetup'
@@ -32,7 +32,7 @@
         if (!matched) return ''
 
         let [_, d, m, y, time] = matched
-        return `${d} ${months[m - 1]} ${time}`
+        return `${d} ${months[m - 1]} ${this.noTime ? '' : time}`
       }
     }
   }
@@ -44,6 +44,8 @@
     font-weight: normal;
     font-family: 'Roboto Slab', serif;
   }
+
+  a { color: #393939 }
 
   .date {
     font: 0.65em 'PT Sans';
