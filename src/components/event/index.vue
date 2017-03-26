@@ -35,10 +35,14 @@
     background-position: 50% 50%;
   }
 
-  a { color: var(--text) }
+  a {
+    color: #50b5bb;
+    color: var(--text, #50b5bb);
+  }
 
   a:hover, a:focus, a:active {
-    text-decoration-color: var(--border)
+    text-decoration-color: #E91E63;
+    text-decoration-color: var(--border, #E91E63);
   }
 </style>
 
@@ -46,8 +50,8 @@
   @import "themes.css";
 
   article {
-    border-left: 5px solid #c8e6ad;
-    border-left-color: var(--border);
+    border-left: 5px solid #ade3e6;
+    border-left-color: var(--border, #ade3e6);
     padding: 0.5em 1em 0.7em;
     margin-top: 2em;
     margin-bottom: auto;
