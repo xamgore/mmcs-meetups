@@ -38,8 +38,8 @@
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #ade3e6;
+    background-color: var(--border, #ade3e6);
     border-radius: 50%;
     margin-right: 0.4em;
   }

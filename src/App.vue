@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="[!atMain && $root.theme]">
     <h1>
       <router-link to="/" :tag="atMain ? 'span' : 'a'" v-text="'mmcs meetups'"/>
     </h1>
@@ -41,17 +41,15 @@
     box-sizing: border-box;
   }
 
-  body {
-    border-top: 6px solid #ade3e6; /*#c8e6ad;*/
-  }
-
   #app {
     color: #444;
     font-family: 'PT Sans', sans-serif;
+    border-top: 6px solid #ade3e6;
+    border-top-color: var(--border, #ade3e6);
   }
 
   @media screen and (min-width: 500px) {
-    #app { margin-left: 5% }
+    #app { padding-left: 5% }
   }
 
   a {

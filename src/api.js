@@ -166,11 +166,26 @@ const data = {
       date: '31.03.16 15:30',
       annotation: `
         Поговорим о том, какие задачи решаются в лаборатории языков программирования в Northeastern University.
-      `
+      `,
+      authors: [
+        {
+          name: 'Артём Пеленицын',
+          ava: 'https://pbs.twimg.com/profile_images/393613739/________bigger.jpg'
+        }
+      ]
     }
   ]
 }
 
 const getData = () => data
 
-export default { getData }
+const getEvent = link => {
+  let res = data.events
+    .concat(data.outdated)
+    .filter(e => e.link === link)
+    .slice(0, 1)
+
+  return res[0] || {}
+}
+
+export default { getData, getEvent }

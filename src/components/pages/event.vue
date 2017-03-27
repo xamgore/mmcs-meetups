@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <event e="e"/>
+    <event :e="e"/>
   </div>
 </template>
 
@@ -11,8 +11,10 @@
   export default {
     name: 'event-page',
     components: { event },
+    data: () => ({ e: {} }),
     created() {
-      this.e = api.getData().events[0]
+      this.e = api.getEvent(this.$route.params.id)
+      this.$root.theme = this.e.theme
     }
   }
 </script>

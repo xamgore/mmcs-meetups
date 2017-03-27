@@ -7,5 +7,6 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
+  data: { theme: '' },
   components: { App }
 })

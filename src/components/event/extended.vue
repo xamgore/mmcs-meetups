@@ -1,26 +1,21 @@
 <template>
   <article :class="[e.theme]">
 
-    <header style="margin-bottom: 1.5rem">
-      <e-title :title="e.title" :date="e.date"/>
-    </header>
+    <header><e-title :title="e.title" :date="e.date"/></header>
 
     <e-content :text="text"/>
 
 
     <footer v-if="e.authors">
       <template v-if="e.authors">
-        <h5 style="margin-bottom:0.5em;font-size:1em">
-          {{ e.authors.length == 0 ? 'Докладчик:' : 'Докладчики:' }}
-        </h5>
-
+        <h5>{{ e.authors.length == 0 ? 'Докладчик:' : 'Докладчики:' }}</h5>
         <e-authors :authors="e.authors"/>
       </template>
 
-      <h5 style="margin: 1em 0 0.5em; font-size:1em">
-        Придут:
-      </h5>
+      <!-- <template>
+        <h5 style="margin-top: 1em">Придут:</h5>
         <e-attendees v-if="e.attendees" :attendees="e.attendees"/>
+      </template> -->
     </footer>
 
   </article>
@@ -36,12 +31,12 @@
   export default {
     name: 'extended-event',
     components: { eTitle, eContent, eAuthors, eAttendees },
-    data: () => ({ e: null }),
+    props: ['e'],
     computed: {
-      text() { console.log(this.e); return this.e.text.trim().replace(/\s*\n\s*\n\s*/g, '<br><br>') }
-    },
-    created() {
-      this.e = api.getData().events[0]
+      text() {
+        let source = this.e.text || this.e.annotation || ''
+        return source.trim().replace(/\s*\n\s*\n\s*/g, '<br><br>')
+      }
     }
   }
 </script>
@@ -60,23 +55,21 @@
   @import "themes.css";
 
   article {
-    /*border-left: 5px solid #c8e6ad;*/
-    /*padding-left: 1em;*/
     margin-top: 2em;
     margin-bottom: auto;
     max-width: 550px !important;
-    /*margin-bottom: 3em;*/
   }
 
   @media screen and (min-width: 450px) {
     article { font-size: 1.1em }
   }
 
-  header {
-    margin-bottom: 1rem;
-  }
+  header { margin-bottom: 1.5rem }
 
-  footer {
-    margin-top: 0.5rem;
+  footer { margin-top: 0.5rem }
+
+  h5 {
+    margin-bottom: 0.5em;
+    font-size: 1em;
   }
 </style>
