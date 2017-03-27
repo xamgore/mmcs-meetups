@@ -1,10 +1,20 @@
 <template>
   <div id="app" :class="[!atMain && $root.theme]">
-    <h1>
-      <router-link to="/" :tag="atMain ? 'span' : 'a'" v-text="'mmcs meetups'"/>
-    </h1>
+
+    <header>
+      <h1><router-link to="/" :tag="atMain ? 'span' : 'a'" v-text="'mmcs meetups'"/></h1>
+
+      <small class="menu">
+        <s href="#">Организаторам</s>
+        &nbsp;&nbsp;
+        <s href="#">Статистика</s>
+        &nbsp;&nbsp;
+        <s href="#">О сайте</s>
+      </small>
+    </header>
 
     <router-view/>
+
   </div>
 </template>
 
@@ -22,11 +32,33 @@
     font-family: Lora, Roboto, serif;
     padding: 0 0.5em;
     font-size: 2em;
+    white-space: nowrap;
+    margin-right: 5rem;
+    margin-bottom: 0;
+    margin-top: 0;
   }
 
   h1:after {
     content: ' ♥';
     color: #E91E63;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1.34em;
+    margin-top: 1.34em;
+  }
+
+  @media screen and (max-width: 500px) {
+    header { margin-bottom: 0 }
+  }
+
+  .menu {
+    margin: 0.5rem 1.2rem;
+    color: #444;
   }
 </style>
 

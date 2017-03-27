@@ -5,6 +5,10 @@
       <event v-for="event in events" :e="event"/>
     </section>
 
+    <!-- <section class="add">
+      <button>+ Добавить свой митап</button>
+    </section> -->
+
     <section class="outdated">
       <event v-for="event in outdated" :e="event" isOutdated/>
     </section>
@@ -36,8 +40,23 @@
   }
 
   section.outdated {
-    margin-top: 5em;
+    margin-top: 3em;
     padding-bottom: 2em;
     background-color: #fafafa;
   }
+
+  /*section.add {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+  }
+
+  section.add button {
+    all: initial;
+    font: inherit;
+    background-color: #ade3e6;
+    color: #333;
+    display: inline-block;
+    padding: 0.5em 1em;
+  }*/
 </style>
