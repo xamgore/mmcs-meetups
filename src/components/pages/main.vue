@@ -5,10 +5,6 @@
       <event v-for="event in events" :e="event"/>
     </section>
 
-    <!-- <section class="add">
-      <button>+ Добавить свой митап</button>
-    </section> -->
-
     <section class="outdated">
       <event v-for="event in outdated" :e="event" isOutdated/>
     </section>

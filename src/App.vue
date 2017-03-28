@@ -5,7 +5,7 @@
       <h1><router-link to="/" :tag="atMain ? 'span' : 'a'" v-text="'mmcs meetups'"/></h1>
 
       <small class="menu">
-        <s href="#">Организаторам</s>
+        <a href="#">Организаторам</a>
         &nbsp;&nbsp;
         <s href="#">Статистика</s>
         &nbsp;&nbsp;
@@ -57,8 +57,20 @@
   }
 
   .menu {
-    margin: 0.5rem 1.2rem;
+    margin: 0.5rem 1rem;
     color: #444;
+  }
+
+  .menu > * {
+    color: inherit;
+    background-color: #f2f2f2;
+    padding: 0.1em 0.3em;
+  }
+
+  .menu > a:hover {
+    background-color: #E91E63;
+    text-decoration: none;
+    color: #fff;
   }
 </style>
 
