@@ -111,21 +111,29 @@
       text: '',
       place: '',
 
-      ptitle: 'Детектирование и трекинг людей на видеоряде',
+      ptitle: 'Коротко и понятно, чтобы хотелось прийти',
       panno: `
         Никто не знает, что там расскажут, но обязательно приходите —
-        анализ видео очень востребован сегодня.
+        тема пользуется бешенной популярностью.
       `.replace(/\s+/g, ' ').trim(),
       ptext: `
-        Здесь какой-нибудь текст и html одновременно.
-      `.replace(/\s+/g, ' ').trim()
+        Здесь можно писать обычный <i>html</i>, возможно,
+        <span style="color: #e91e63">со стилями</span>.
+        Хороший пример оформления текста можно найти
+        <a href="/cat">здесь</a>.
+
+        В будущем, можно будет использовать markdown разметку.
+      `.split(/\s[\r\t\v\f ]+/).join('\n').replace(/(.)\n(?!\n)/g, '$1 ').trim()
     }),
     created() {
       let d = new Date()
-      let m = 1 + d.getMonth()
+      const addZero = v => (v < 10 ? '0' : '') + v
 
-      this.date = `${d.getFullYear()}-${m < 10 ? '0' : ''}${m}-${d.getDate()}`
-      this.time = `${d.getHours()}:${d.getMinutes()}`
+      let [mo, da, ho, mi] = [
+        d.getMonth() + 1, d.getDate(), d.getHours(), d.getMinutes()].map(addZero)
+
+      this.date = `${d.getFullYear()}-${mo}-${da}`
+      this.time = `${ho}:${mi}`
     },
     watch: {
       text() {
@@ -194,5 +202,5 @@
     margin-bottom: 1em
   }
 
-  textarea.text { min-height: 28em }
+  textarea.text { min-height: 14em }
 </style>
