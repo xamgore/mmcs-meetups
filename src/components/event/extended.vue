@@ -1,7 +1,7 @@
 <template>
   <article :class="[e.theme]">
 
-    <header><e-title :title="e.title" :date="e.date"/></header>
+    <header v-if="header"><e-title :title="e.title" :date="e.date" :time="e.time"/></header>
 
     <e-content :text="text"/>
 
@@ -31,7 +31,7 @@
   export default {
     name: 'extended-event',
     components: { eTitle, eContent, eAuthors, eAttendees },
-    props: ['e'],
+    props: { e: {required: true}, header: {default: true} },
     computed: {
       text() {
         let source = this.e.text || this.e.annotation || ''

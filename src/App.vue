@@ -5,10 +5,8 @@
       <h1><router-link to="/" :tag="atMain ? 'span' : 'a'" v-text="'mmcs meetups'"/></h1>
 
       <small class="menu">
-        <a href="#">Организаторам</a>
-        &nbsp;&nbsp;
+        <router-link :to="{ name: 'new' }" v-text="'Организаторам'"/>
         <s href="#">Статистика</s>
-        &nbsp;&nbsp;
         <s href="#">О сайте</s>
       </small>
     </header>
@@ -67,6 +65,14 @@
     padding: 0.1em 0.3em;
   }
 
+  .menu > *:not(:last-child) {
+    margin-right: 0.8em;
+  }
+
+  .menu a {
+    text-decoration-color: #E91E63;
+  }
+
   .menu > a:hover {
     background-color: #E91E63;
     text-decoration: none;
@@ -108,5 +114,9 @@
 
   h1 a {
     color: inherit;
+  }
+
+  input, textarea, select {
+    outline-color: #e91e63;
   }
 </style>

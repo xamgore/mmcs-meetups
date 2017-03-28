@@ -2,7 +2,7 @@
   <article :class="[e.theme, { compactly, outdated }]">
 
     <header>
-      <e-title :title="e.title" :date="e.date" :noTime="outdated" :link="e.link"/>
+      <e-title :title="e.title" :date="e.date" :time="e.time" :noTime="outdated" :link="e.link"/>
     </header>
 
     <e-content v-if="hasContent" :text="e.annotation"/>
@@ -55,6 +55,7 @@
     padding: 0.5em 1em 0.7em;
     margin-top: 2em;
     margin-bottom: auto;
+    word-break: break-word;
   }
 
   @media screen and (min-width: 450px) {

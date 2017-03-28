@@ -26,7 +26,8 @@
 
 <style scoped>
   .prelude {
-    margin: 0
+    margin: 0;
+    word-break: break-word;
   }
 
   .text {

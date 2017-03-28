@@ -8,5 +8,10 @@ new Vue({
   router,
   template: '<App/>',
   data: { theme: '' },
-  components: { App }
+  components: { App },
+  created() {
+    this.$router.afterEach((to, from) => {
+      this.$root.theme = ''
+    })
+  }
 })
