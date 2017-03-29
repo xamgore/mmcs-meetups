@@ -55,7 +55,7 @@
             Ссылка
             <input v-model="url" :placeholder="event.title" type="url" inputmode="url"/>
           </label>
-          <span style="background-color: #f7f7f7; font-size: 0.8em; padding: 0 0.3em; color: blue">
+          <span style="background-color: #f7f7f7; font-size: 0.8em; padding: 0 0.3em; color: #0d47a1">
             meetups.sfedu.ru/{{ link }}</span>
         </div>
       </div>
@@ -137,18 +137,19 @@
     },
     watch: {
       text() {
+        if (this.$root.$el.offsetWidth < 500) return
         this.$refs.text.style.height = `${this.$refs.preview.$el.offsetHeight}px`
       }
     },
     computed: {
       event() {
         return {
-          title: this.title || this.ptitle,
-          annotation: this.anno || this.panno,
-          text: this.text || this.ptext,
-          date: this.date,
-          link: this.link,
-          theme: this.theme
+            title: this.title || this.ptitle,
+            annotation: this.anno || this.panno,
+            text: this.text || this.ptext,
+            date: this.date,
+            link: this.link,
+            theme: this.theme
         }
       },
 
@@ -187,6 +188,15 @@
     width: 100%;
   }
 
+  .split .left > div {
+    margin-bottom: 1em
+  }
+
+  @media screen and (max-width: 500px) {
+    .split > .left { padding-right: 0 }
+    .split:first-child > .right { margin-bottom: 2em }
+  }
+
   input[type=text], input[type=url], textarea {
     display: block;
     width: 100%;
@@ -196,11 +206,11 @@
     margin: 0.1em 0;
   }
 
-  label:active { user-select: none }
-
-  .split .left > div {
-    margin-bottom: 1em
+  @media screen and (max-width: 500px) {
+    input[type=text], input[type=url], textarea { letter-spacing: -0.7px }
   }
+
+  label:active { user-select: none }
 
   textarea.text { min-height: 14em }
 </style>
