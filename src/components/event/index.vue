@@ -61,6 +61,7 @@
   @media screen and (min-width: 450px) {
     article {
       max-width: 440px;
+      min-width: 440px;
       font-size: 1.1em;
     }
   }
@@ -68,6 +69,7 @@
   @media screen and (min-width: 910px) {
     article {
       max-width: 400px;
+      min-width: 400px;
       margin-right: 5%;
     }
   }
