@@ -54,6 +54,16 @@ const data = {
   ],
   events: [
     {
+      link: '47hours',
+      theme: 'violet',
+      title: 'VR & AR хакатон',
+      date: '2017-04-02',
+      time: '16:30',
+      place: '311',
+      annotation: `Это супер крутой хакатон на 47 часов.<br>Но есть один минус: он в Таганроге.`
+    },
+
+    {
       link: 'cat',
       theme: 'gray',
       title: 'Теория Категорий',
