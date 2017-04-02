@@ -194,7 +194,7 @@ const data = [
 const getData = () => data
 
 const getEvent = link => {
-  let res = data.events
+  let res = data
     .filter(e => e.link === link)
     .slice(0, 1)
 
