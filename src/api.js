@@ -1,10 +1,9 @@
-const data = {
-  outdated: [
+const data = [
     {
       theme: 'orange',
       link: 'detecting-people-in-video',
       title: 'Детектирование и трекинг людей на видеоряде',
-      date: '2016-03-20',
+      date: '2017-03-20',
       time: '17:30',
       annotation: `
         Никто не знает, что там расскажут, но обязательно приходите —
@@ -16,7 +15,7 @@ const data = {
       theme: 'blue',
       link: 'data-science-meetup',
       title: 'Data Science Meetup',
-      date: '2016-03-04',
+      date: '2017-03-04',
       time: '16:00',
       annotation: `
           Всего будет четыре доклада, один из которых для новичков,
@@ -29,7 +28,7 @@ const data = {
       link: 'speech-recognition-with-HMM',
       theme: 'green',
       title: 'Распознавание речи на основе скрытых марковских моделей',
-      date: '2016-02-20',
+      date: '2017-02-20',
       time: '17:30',
       place: '212',
       annotation: `
@@ -50,9 +49,8 @@ const data = {
       authors: [
         { name: 'Дмитрий Свиридкин', ava: 'https://pbs.twimg.com/profile_images/826897257689649154/JWf5zVTT.jpg' }
       ]
-    }
-  ],
-  events: [
+    },
+
     {
       link: '47hours',
       theme: 'violet',
@@ -67,7 +65,7 @@ const data = {
       link: 'cat',
       theme: 'gray',
       title: 'Теория Категорий',
-      date: '2016-03-24',
+      date: '2017-4-28',
       time: '16:30',
       place: '311',
       annotation: `
@@ -179,7 +177,7 @@ const data = {
       link: 'hello-from-northeastern-university',
       theme: 'yellow',
       title: 'Ulysses возвращается!',
-      date: '2016-03-31',
+      date: '2017-03-31',
       time: '15:30',
       annotation: `
         Поговорим о том, какие задачи решаются в лаборатории языков программирования в Northeastern University.
@@ -191,14 +189,12 @@ const data = {
         }
       ]
     }
-  ]
-}
+]
 
 const getData = () => data
 
 const getEvent = link => {
   let res = data.events
-    .concat(data.outdated)
     .filter(e => e.link === link)
     .slice(0, 1)
 

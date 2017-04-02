@@ -1,14 +1,13 @@
 <template>
   <div class="page">
 
-    <section class="news">
-      <event v-for="event in events" :e="event"/>
+    <section v-if="upcoming" class="news">
+      <event v-for="event in upcoming" :e="event"/>
     </section>
 
-    <section class="outdated">
+    <section v-if="outdated" class="outdated">
       <event v-for="event in outdated" :e="event" isOutdated/>
     </section>
-
   </div>
 </template>
 
@@ -19,9 +18,28 @@
   export default {
     name: 'main-page',
     components: { Event },
+    data: () => ({ events: [], now: new Date(2017, 2, 30) }),
+    computed: {
+      upcoming() { return this.events.filter(e => !this.isOutdated(e.date)) },
+      outdated() { return this.events.filter(e => this.isOutdated(e.date)) }
+    },
+    methods: {
+      isOutdated(date) {
+        let matched = /^(\d\d\d?\d?)[.|-](\d\d?)[.|-](\d\d?)$/.exec(date)
+        if (!matched) return ''
+        let [_, y, m, d] = matched
+        y = +y; m = +m; d = +d
+
+        let ny = this.now.getFullYear(),
+            nm = this.now.getMonth() + 1,
+            nd = this.now.getDate()
+
+        return (y < ny) || (y === ny && m < nm) || (y === ny && m === nm && d < nd)
+      }
+    },
     created() {
-      Object.assign(this, Api.getData())
-      this.events = [...this.events, ...this.events.reverse(), ...this.events.reverse()]
+      let es = Api.getData()
+      this.events = [...es, ...es.reverse(), ...es.reverse()]
     }
   }
 </script>
