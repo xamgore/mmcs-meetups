@@ -25,7 +25,7 @@
         let t = new Date()
         let isToday = (t.getFullYear() === +y) && (t.getMonth() === m - 1) && (t.getDate() === +d)
 
-        let date = isToday ? 'сегодня' : `${+d} ${months[m - 1]}`
+        let date = isToday ? 'сегодня в' : `${+d} ${months[m - 1]}`
         let time = `${this.noTime ? '' : this.time || ''}`
 
         return `${date} ${time}`

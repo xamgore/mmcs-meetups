@@ -148,6 +148,7 @@
             annotation: this.anno || this.panno,
             text: this.text || this.ptext,
             date: this.date,
+            time: this.time,
             link: this.link,
             theme: this.theme
         }
