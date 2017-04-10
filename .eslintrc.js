@@ -27,6 +27,7 @@ module.exports = {
     'one-var': 0,
     'handle-callback-err': 0,
     'no-unused-vars': 0,
-    'indent': 0
+    'indent': 0,
+    'promise/param-names': 0
   }
 }

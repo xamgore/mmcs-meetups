@@ -1,4 +1,4 @@
-const data = [
+export default [
     {
       theme: 'orange',
       link: 'detecting-people-in-video',
@@ -190,15 +190,3 @@ const data = [
       ]
     }
 ]
-
-const getData = () => data
-
-const getEvent = link => {
-  let res = data
-    .filter(e => e.link === link)
-    .slice(0, 1)
-
-  return res[0] || {}
-}
-
-export default { getData, getEvent }

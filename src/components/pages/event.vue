@@ -13,8 +13,8 @@
     components: { event },
     data: () => ({ e: {} }),
     created() {
-      this.e = api.getEvent(this.$route.params.id)
-      this.$root.theme = this.e.theme
+      api.events.show(this.$route.params.id)
+        .then(e => { this.e = e; this.$root.theme = e.theme })
     }
   }
 </script>

@@ -13,7 +13,7 @@
 
 <script>
   import Event from '../event/index'
-  import Api from '../../api'
+  import api from '../../api'
 
   export default {
     name: 'main-page',
@@ -38,8 +38,9 @@
       }
     },
     created() {
-      let es = Api.getData()
-      this.events = [...es, ...es.reverse(), ...es.reverse()]
+      api.events.index().then(es => {
+        this.events = [...es, ...es.reverse(), ...es.reverse()]
+      })
     }
   }
 </script>
