@@ -1,5 +1,5 @@
 <template>
-  <article :class="[e.theme, { compactly, outdated }]">
+  <article :class="[e.theme, { compactly }]">
 
     <header>
       <e-title :title="e.title" :date="e.date" :time="e.time" :noTime="outdated" :link="e.link"/>
@@ -73,8 +73,6 @@
       margin-right: 5%;
     }
   }
-
-  .outdated { background-color: #fafafa }
 
   header {
     margin-bottom: 1rem;

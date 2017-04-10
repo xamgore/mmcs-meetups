@@ -58,21 +58,6 @@
   section.outdated {
     margin-top: 3em;
     padding-bottom: 2em;
-    background-color: #fafafa;
+    background-color: #f8f8f8;
   }
-
-  /*section.add {
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-  }
-
-  section.add button {
-    all: initial;
-    font: inherit;
-    background-color: #ade3e6;
-    color: #333;
-    display: inline-block;
-    padding: 0.5em 1em;
-  }*/
 </style>
