@@ -38,7 +38,8 @@
       }
     },
     created() {
-      api.events.index().then(es => {
+      api.events.index().then(res => {
+        let es = res.data
         this.events = [...es, ...es.reverse(), ...es.reverse()]
       })
     }

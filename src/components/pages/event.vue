@@ -14,7 +14,7 @@
     data: () => ({ e: {} }),
     created() {
       api.events.show(this.$route.params.id)
-        .then(e => { this.e = e; this.$root.theme = e.theme })
+        .then(res => { this.e = res.data; this.$root.theme = this.e.theme })
     }
   }
 </script>
