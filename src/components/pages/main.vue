@@ -13,13 +13,15 @@
 
 <script>
   import Event from '../event/index'
+  import store from '../../api/store'
   import api from '../../api'
 
   export default {
     name: 'main-page',
     components: { Event },
-    data: () => ({ events: [], now: new Date(2017, 2, 30) }),
+    data: () => ({ now: new Date(2017, 2, 30) }),
     computed: {
+      events: () => store.events,
       upcoming() { return this.events.filter(e => !this.isOutdated(e.date)) },
       outdated() { return this.events.filter(e => this.isOutdated(e.date)) }
     },
@@ -39,8 +41,7 @@
     },
     created() {
       api.events.index().then(res => {
-        let es = res.data
-        this.events = [...es, ...es.reverse(), ...es.reverse()]
+        store.events = [...res.data.reverse(), ...res.data.reverse(), ...res.data]
       })
     }
   }
@@ -60,4 +61,6 @@
     padding-bottom: 2em;
     background-color: #f8f8f8;
   }
+
+  section.outdated:empty { display: none }
 </style>
