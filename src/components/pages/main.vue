@@ -14,7 +14,6 @@
 <script>
   import Event from '../event/index'
   import store from '../../api/store'
-  import api from '../../api'
 
   export default {
     name: 'main-page',
@@ -40,9 +39,7 @@
       }
     },
     created() {
-      api.events.index().then(res => {
-        store.events = [...res.data.reverse(), ...res.data.reverse(), ...res.data]
-      })
+      store.fetchEvents()
     }
   }
 </script>
