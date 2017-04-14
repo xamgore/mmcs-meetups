@@ -15,5 +15,5 @@ We are looking for contributors, who can help with any part of the site infrastr
 
 ```bash
 yarn
-yarn run dev
+yarn start
 ```
