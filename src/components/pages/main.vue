@@ -5,6 +5,14 @@
       <event v-for="event in upcoming" :e="event"/>
     </section>
 
+    <section v-if="loaded" class="more">
+      {{ upcoming.length ? 'Ещё' : 'Никаких' }}
+      митапов не предвидится, но ты можешь
+      <router-link :to="{name:'new'}">организовать свой</router-link>
+      или попробовать
+      <a href="https://stepik.org" style="color:#5fbc5f">пройти курс на степике</a>.
+    </section>
+
     <section v-if="outdated" class="outdated">
       <event v-for="event in outdated" :e="event" isOutdated/>
     </section>
@@ -20,7 +28,8 @@
     components: { Event },
     data: () => ({ now: new Date(2017, 2, 30) }),
     computed: {
-      events: () => store.events,
+      loaded: () => !!store.events,
+      events: () => store.events || [],
       upcoming() { return this.events.filter(e => !this.isOutdated(e.date)) },
       outdated() { return this.events.filter(e => this.isOutdated(e.date)) }
     },
@@ -60,4 +69,17 @@
   }
 
   section.outdated:empty { display: none }
+
+  section.more {
+    display: inline-block;
+    margin-top: 3em;
+    margin-right: 17%;
+  }
+
+  @media screen and (max-width: 500px) {
+    section.more {
+      margin-left: 5%;
+      margin-right: 1em;
+    }
+  }
 </style>
