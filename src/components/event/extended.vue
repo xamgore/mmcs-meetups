@@ -12,10 +12,10 @@
         <e-authors :authors="e.authors"/>
       </template>
 
-      <!-- <template>
+      <template v-if="e.attendees">
         <h5 style="margin-top: 1em">Придут:</h5>
-        <e-attendees v-if="e.attendees" :attendees="e.attendees"/>
-      </template> -->
+        <e-attendees :attendees="e.attendees"/>
+      </template>
     </footer>
 
   </article>
