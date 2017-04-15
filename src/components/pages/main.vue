@@ -62,6 +62,10 @@
     padding-left: 5%;
   }
 
+  section.news {
+    margin-bottom: 2em;
+  }
+
   section.outdated {
     margin-top: 3em;
     padding-bottom: 2em;
