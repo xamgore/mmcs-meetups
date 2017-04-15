@@ -1,10 +1,12 @@
 <template>
   <div class="author">
 
-    <div v-for="a in shuffled" :title="a.name" class="ava"
+    <div v-for="a in (expand ? all : left)" :title="a.name" :class="['ava', {squeeze:expand}]"
          :style="{ 'background-image': url(a.ava) }"/>
 
-    <span style="margin-left:0.7em">и ещё {{ left }} человек</span>
+    <span v-if="!expand" class="more">
+      и <a @click="expand = true">ещё {{ rightCount }}</a>
+    </span>
 
   </div>
 </template>
@@ -13,11 +15,14 @@
   export default {
     name: 'e-attendees',
     props: ['attendees'],
+    data: () => ({
+      expand: false
+    }),
     methods: {
       url: src => `url(${src})`
     },
     computed: {
-      shuffled() {
+      all() {
         let a = this.attendees.slice(0, this.attendees.length)
 
         for (let i = a.length; i; i--) {
@@ -27,10 +32,12 @@
           a[j] = x
         }
 
-        return a.slice(0, 7)
+        return a
       },
 
-      left() { return Math.max(0, this.attendees.length - 7) }
+      left() { return this.all.slice(0, 7) },
+
+      rightCount() { return Math.max(0, this.attendees.length - 7) }
     }
   }
 </script>
@@ -39,9 +46,11 @@
   .author {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0 0 4px;
     font-size: 0.9em;
+    cursor: help;
   }
 
   .ava {
@@ -51,12 +60,12 @@
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-color: #fff;
-    border-radius: 50%;
-    margin-right: -0.2em;
+    border-radius: 5%;
+    margin-right: 0.1em;
+    margin-bottom: 0.1em;
   }
 
-  @media screen and (max-width: 320px) {
-    .ava { margin-right: -0.25em }
-  }
+  .more { margin-left: 0.3em }
+
+  .more a { text-decoration: underline }
 </style>

@@ -32,8 +32,8 @@
   }
 
   .ava {
-    width: 1.8em;
-    height: 1.8em;
+    width: 2em;
+    height: 2em;
     display: inline-block;
     background-size: cover;
     background-position: 50% 50%;
