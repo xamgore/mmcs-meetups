@@ -218,6 +218,11 @@
 
   input[type=text], input[type=url], textarea {
     width: 100%;
+  }
+
+  input, textarea, select {
+    background: transparent;
+    border: 1px solid #ccc;
     font-family: monospace;
     padding: 0.2em 0.4em;
     line-height: 1.4em;
@@ -225,7 +230,10 @@
   }
 
   @media screen and (max-width: 500px) {
-    input[type=text], input[type=url], textarea { letter-spacing: -0.7px }
+    input, textarea, select {
+      /*letter-spacing: -0.7px*/
+      font-size: 0.8em
+    }
   }
 
   label:active { user-select: none }
