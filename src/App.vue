@@ -48,6 +48,7 @@
     align-items: center;
     margin-bottom: 1.34em;
     margin-top: 1.34em;
+    flex: none;
   }
 
   @media screen and (max-width: 500px) {
@@ -89,6 +90,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    height: 100%;
   }
 
   #app {
@@ -96,6 +98,9 @@
     font-family: 'PT Sans', sans-serif;
     border-top: 6px solid #ade3e6;
     border-top-color: var(--border, #ade3e6);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   @media screen and (min-width: 500px) {

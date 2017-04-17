@@ -54,12 +54,18 @@
 </script>
 
 <style scoped>
-  .page { margin-left: -5.24% }
+  .page {
+    margin-left: -5.24%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
   section {
     display: flex;
     flex-wrap: wrap;
     padding-left: 5%;
+    flex: none;
   }
 
   section.news {
@@ -70,6 +76,7 @@
     margin-top: 3em;
     padding-bottom: 2em;
     background-color: #f8f8f8;
+    flex: 1 0 auto;
   }
 
   section.outdated:empty { display: none }
