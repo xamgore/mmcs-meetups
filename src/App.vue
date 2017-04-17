@@ -5,7 +5,7 @@
       <h1><router-link to="/" :tag="atMain ? 'span' : 'a'" v-text="'mmcs meetups'"/></h1>
 
       <small class="menu">
-        <router-link :to="{ name: 'new' }" v-text="'Организаторам'"/>
+        <router-link :to="{ name: 'new' }" v-text="'Администраторам'"/>
         <s href="#">Статистика</s>
         <s href="#">О сайте</s>
       </small>

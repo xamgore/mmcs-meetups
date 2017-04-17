@@ -17,9 +17,8 @@ if (process.env.NODE_ENV === 'development') {
       show: (link) => new Promise((res, rej) =>
         res({ data: data.find(e => e.link === link) || {} })),
 
-      create: (event, pass) => new Promise((res, rej) => {
-        pass !== 'mmcs' ? rej() : (data.push(event) | res())
-      })
+      create: (event, pass) => new Promise((res, rej) =>
+        res(data.push(event)))
     }
   }
 }
@@ -64,7 +63,7 @@ if (process.env.NODE_ENV === 'development') {
           .catch(_ => {
             switchTo(dev)
             console.warn('Backend API server doesn\'t respond. ' +
-                          'Fallback with data.js content is used.')
+              'Fallback with data.js content is used.')
             return dev[res][method](...args)
           })
     }

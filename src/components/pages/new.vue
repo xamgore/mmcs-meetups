@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <form class="page" @submit.prevent="create">
 
     <div class="split">
       <div class="left">
@@ -88,7 +88,13 @@
     <!--</label>-->
     <!--</div>-->
 
-  </div>
+    <div class="create">
+      <label for="pass">Пароль:</label>
+      <input id="pass" type="text" v-model="pass" style="width: 11em" required/>
+      <input type="submit" class="okay" value="Создать"/>
+    </div>
+
+  </form>
 </template>
 
 <script>
@@ -96,13 +102,14 @@
   import extended from '../event/extended'
   import { transliterate } from '../event/translit'
 
-  // import api from '../../api'
+  import api from '../../api'
 
   export default {
     name: 'add-new-page',
     components: { event, extended },
 
     data: () => ({
+      pass: '',
       s: { title: '', anno: '', theme: '', url: '', text: '', place: '', time: '', date: this.today },
       p: {
         title: 'Коротко и понятно, чтобы хотелось прийти',
@@ -149,7 +156,7 @@
           text: this.s.text || this.p.text,
           date: this.s.date,
           time: this.s.time,
-          link: this.s.link,
+          link: this.link,
           theme: this.s.theme
         }
       },
@@ -157,6 +164,13 @@
       link() {
         let phrase = this.s.url || this.s.title || this.p.title
         return phrase.split(' ').join('-').toLowerCase()
+      }
+    },
+
+    methods: {
+      create() {
+        api.events.create(this.event, this.pass)
+          .then(_ => this.$router.push({ name: 'main' }))
       }
     }
   }
@@ -204,7 +218,6 @@
   }
 
   input[type=text], input[type=url], textarea {
-    display: block;
     width: 100%;
     font-family: monospace;
     padding: 0.2em 0.4em;
@@ -219,4 +232,25 @@
   label:active { user-select: none }
 
   textarea.text { min-height: 14em }
+
+  .okay {
+    all: inherit;
+    background: #eee;
+    padding: 0.1em 0.5em 0.2em;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    border: none;
+  }
+
+  .okay:hover {
+    background: #e0e0e0;
+  }
+
+  .create * { margin-right: 0.3em !important }
+
+  .create {
+    display: flex;
+    align-items: center;
+  }
 </style>
