@@ -15,19 +15,24 @@ if (process.env.NODE_ENV === 'development') {
       })),
 
       show: (link) => new Promise((res, rej) =>
-        res({ data: data.filter(e => e.link === link)[0] || {} }))
+        res({ data: data.find(e => e.link === link) || {} })),
+
+      create: (event, pass) => new Promise((res, rej) => {
+        pass !== 'mmcs' ? rej() : (data.push(event) | res())
+      })
     }
   }
 }
 
-let prod = window.prod = {
+let prod = {
   events: {
     index: () => axio.get('/events'),
-    show: link => axio.get(`/events/${link}`)
+    show: link => axio.get(`/events/${link}`),
+    create: (event, pass) => axio.post(`/events`, { event, pass })
   }
 }
 
-let api = {}
+let api = window.api = {}
 
 if (process.env.NODE_ENV !== 'development') {
   api = prod
@@ -60,7 +65,7 @@ if (process.env.NODE_ENV === 'development') {
             switchTo(dev)
             console.warn('Backend API server doesn\'t respond. ' +
                           'Fallback with data.js content is used.')
-            return dev[res][method]()
+            return dev[res][method](...args)
           })
     }
 
