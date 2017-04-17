@@ -5,9 +5,7 @@ let store = window.store = new Vue({
   data: { events: null },
   methods: {
     fetchEvents() {
-      api.events.index().then(res => {
-        this.events = [...res.data.reverse(), ...res.data.reverse(), ...res.data]
-      })
+      api.events.index().then(res => { this.events = res.data })
     }
   }
 })

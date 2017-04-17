@@ -10,7 +10,9 @@ let dev = {}
 if (process.env.NODE_ENV === 'development') {
   dev = {
     events: {
-      index: () => new Promise((res, rej) => res({ data })),
+      index: () => new Promise((res, rej) => res({
+        data: [...data, ...data.reverse(), ...data.reverse()]
+      })),
 
       show: (link) => new Promise((res, rej) =>
         res({ data: data.filter(e => e.link === link)[0] || {} }))
