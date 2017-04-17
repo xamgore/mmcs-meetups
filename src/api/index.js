@@ -5,12 +5,16 @@ let axio = axios.create({
   baseURL: `${window.location.protocol}//${window.location.hostname}:3001/api/v17`
 })
 
-let dev = {
-  events: {
-    index: () => new Promise((res, rej) => res({ data })),
+let dev = {}
 
-    show: (link) => new Promise((res, rej) =>
-      res({ data: data.filter(e => e.link === link)[0] || {} }))
+if (process.env.NODE_ENV === 'development') {
+  dev = {
+    events: {
+      index: () => new Promise((res, rej) => res({ data })),
+
+      show: (link) => new Promise((res, rej) =>
+        res({ data: data.filter(e => e.link === link)[0] || {} }))
+    }
   }
 }
 
@@ -23,18 +27,20 @@ let prod = window.prod = {
 
 let api = {}
 
-function switchTo(type) {
-  for (let resource in api) {
-    for (let method in api[resource]) {
-      api[resource][method] = type[resource][method]
-    }
-  }
+if (process.env.NODE_ENV !== 'development') {
+  api = prod
 }
 
-if (process.env.NODE_ENV === 'production') {
-  api = prod
-} else {
+if (process.env.NODE_ENV === 'development') {
   axio.defaults.timeout = 400
+
+  const switchTo = type => {
+    for (let resource in api) {
+      for (let method in api[resource]) {
+        api[resource][method] = type[resource][method]
+      }
+    }
+  }
 
   for (let res in prod) {
     let proxy = {}
