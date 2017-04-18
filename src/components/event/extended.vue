@@ -6,7 +6,7 @@
     <e-content :text="text"/>
 
 
-    <footer v-if="e.authors">
+    <footer>
       <template v-if="e.authors">
         <h5>{{ e.authors.length == 0 ? 'Докладчик:' : 'Докладчики:' }}</h5>
         <e-authors :authors="e.authors"/>
@@ -16,6 +16,11 @@
         <h5 style="margin-top: 1em">Придут:</h5>
         <e-attendees :attendees="e.attendees"/>
       </template>
+
+      <!--<div style="margin-top: 1.2em">-->
+        <!--пойдёшь? <a class="okay">нуок</a>-->
+      <!--</div>-->
+
     </footer>
 
   </article>
@@ -64,12 +69,24 @@
     article { font-size: 1.1em }
   }
 
-  header { margin-bottom: 1.5rem }
+  header { margin-bottom: 0.66rem }
 
-  footer { margin-top: 0.5rem }
+  footer { margin-top: 1.65em }
 
   h5 {
     margin-bottom: 0.5em;
     font-size: 1em;
+  }
+
+  .okay {
+    background: #eee;
+    padding: 0.1em 0.5em 0.2em;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .okay:hover {
+    background: #e0e0e0;
   }
 </style>

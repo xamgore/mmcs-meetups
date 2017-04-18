@@ -178,6 +178,7 @@
 
 <style scoped>
   .page {
+    margin-top: 2.5em;
     margin-left: 1.0em;
     margin-bottom: 1.5em;
     font-size: 1.1em;

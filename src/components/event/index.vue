@@ -75,11 +75,7 @@
   }
 
   header {
-    margin-bottom: 1rem;
-  }
-
-  .compactly header {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.55rem;
   }
 
   header:last-child {
