@@ -7,7 +7,7 @@
       <small class="menu">
         <router-link :to="{ name: 'new' }" v-text="'Администраторам'"/>
         <s href="#">Статистика</s>
-        <s href="#">О сайте</s>
+        <router-link :to="{ name: 'about' }" v-text="'О сайте'"/>
       </small>
     </header>
 
