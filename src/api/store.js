@@ -15,7 +15,7 @@ let store = window.store = new Vue({
 
         idx === -1
           ? this.raw_events.push(res.data)
-          : this.raw_events[idx] = res.data
+          : this.$set(this.raw_events, idx, res.data)
       })
     }
   },

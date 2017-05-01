@@ -16,7 +16,10 @@
       e() { return this.events.find(e => e.link === this.$route.params.id) || { theme: '' } }
     },
     watch: { 'e.theme'() { this.$root.theme = this.e.theme } },
-    created() { store.fetchOnly(this.$route.params.id) }
+    created() {
+      store.fetchOnly(this.$route.params.id)
+      this.$root.theme = this.e.theme
+    }
   }
 </script>
 
