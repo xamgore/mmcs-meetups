@@ -6,16 +6,17 @@
 
 <script>
   import event from '../event/extended'
-  import api from '../../api'
+  import store from '../../api/store'
 
   export default {
     name: 'event-page',
     components: { event },
-    data: () => ({ e: {} }),
-    created() {
-      api.events.show(this.$route.params.id)
-        .then(res => { this.e = res.data; this.$root.theme = this.e.theme })
-    }
+    computed: {
+      events: () => store.events || [],
+      e() { return this.events.find(e => e.link === this.$route.params.id) || { theme: '' } }
+    },
+    watch: { 'e.theme'() { this.$root.theme = this.e.theme } },
+    created() { store.fetchOnly(this.$route.params.id) }
   }
 </script>
 

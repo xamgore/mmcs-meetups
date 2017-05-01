@@ -47,9 +47,7 @@
         return (y < ny) || (y === ny && m < nm) || (y === ny && m === nm && d < nd)
       }
     },
-    created() {
-      store.fetchEvents()
-    }
+    created() { store.fetchAll() }
   }
 </script>
 
