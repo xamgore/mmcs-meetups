@@ -1,9 +1,7 @@
 <template>
   <article :class="[e.theme, { compactly }]">
 
-    <header>
-      <e-title :title="e.title" :date="e.date" :time="e.time" :noTime="outdated" :link="e.link"/>
-    </header>
+    <header><e-title :e="e" :link="e.link" :no-time="noTime"/></header>
 
     <e-content v-if="hasContent" :text="e.annotation"/>
 
@@ -17,12 +15,11 @@
 
   export default {
     name: 'event',
-    props: ['e', 'isOutdated'],
+    props: ['e', 'no-time'],
     components: { eTitle, eAuthors, eContent },
     computed: {
       compactly() { return !this.e.authors },
-      hasContent() { return this.e.text || this.e.annotation },
-      outdated() { return typeof this.isOutdated !== 'undefined' }
+      hasContent() { return this.e.text || this.e.annotation }
     }
   }
 </script>

@@ -14,7 +14,7 @@
     </section>
 
     <section v-if="outdated" class="outdated">
-      <event v-for="event in outdated" :e="event" isOutdated/>
+      <event v-for="event in outdated" :e="event" :no-time="true"/>
     </section>
   </div>
 </template>
@@ -26,26 +26,13 @@
   export default {
     name: 'main-page',
     components: { Event },
-    data: () => ({ now: new Date(2017, 2, 30) }),
     computed: {
       loaded: () => !!store.events,
       events: () => store.events || [],
-      upcoming() { return this.events.filter(e => !this.isOutdated(e.date)) },
-      outdated() { return this.events.filter(e => this.isOutdated(e.date)) }
+      upcoming() { return this.events.filter(e => !e.isOutdated) },
+      outdated() { return this.events.filter(e => e.isOutdated) }
     },
     methods: {
-      isOutdated(date) {
-        let matched = /^(\d\d\d?\d?)[.|-](\d\d?)[.|-](\d\d?)$/.exec(date)
-        if (!matched) return ''
-        let [_, y, m, d] = matched
-        y = +y; m = +m; d = +d
-
-        let ny = this.now.getFullYear(),
-            nm = this.now.getMonth() + 1,
-            nd = this.now.getDate()
-
-        return (y < ny) || (y === ny && m < nm) || (y === ny && m === nm && d < nd)
-      }
     },
     created() { store.fetchAll() }
   }

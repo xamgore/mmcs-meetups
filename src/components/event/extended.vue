@@ -1,7 +1,7 @@
 <template>
   <article :class="[e.theme]">
 
-    <header v-if="header"><e-title :title="e.title" :date="e.date" :time="e.time"/></header>
+    <header v-if="header"><e-title :e="e"/></header>
 
     <e-content :text="text"/>
 
