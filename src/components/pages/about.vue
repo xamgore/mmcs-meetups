@@ -34,20 +34,58 @@
 
     <h3 style="margin-top: 2.5em">Контакты</h3>
 
-    <p>Игорь — разработчик и модератор&nbsp;
-      <a href="https://vk.com/strebz">vk</a> /
-      <a href="http://www.google.com/recaptcha/mailhide/d?k=01iqeHr_Fxn8kukwxs4T6Q4A==&amp;c=8TvGhTGjFwnDEnl3twqjWJidqylH0_L9jxry-3-I3YU=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01iqeHr_Fxn8kukwxs4T6Q4A\x3d\x3d\x26c\x3d8TvGhTGjFwnDEnl3twqjWJidqylH0_L9jxry-3-I3YU\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300');return !1">email</a>
+    <p v-for="(p, i) in contacts">
+      {{ p.name }} — {{ p.about }}&nbsp;
 
-    <p>Яна — доцент, «крышует» проект&nbsp;
-      <a href="https://vk.com/id297003875">vk</a> /
-      <a href="http://www.google.com/recaptcha/mailhide/d?k=01NwdxQLAH4bVYVgSxQydqhA==&amp;c=jBX5Vm0ShMmNNmvtydg7XYBKqLWMyddZrJRkxs4vyNM=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01NwdxQLAH4bVYVgSxQydqhA\x3d\x3d\x26c\x3djBX5Vm0ShMmNNmvtydg7XYBKqLWMyddZrJRkxs4vyNM\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300');return !1">email</a>
+      <span style="white-space: nowrap">
+        <a :href="p.vk">vk</a> /
+        <a :href="emails[i].href" :onclick="emails[i].click">email</a>
+      </span>
+    </p>
 
   </article>
 </template>
 
 <script>
   export default {
-    name: 'about-page'
+    name: 'about-page',
+
+    data: () => ({
+      contacts: [
+
+        {
+          name: 'Игорь',
+          about: 'разработчик и модератор',
+          vk: 'https://vk.com/strebz',
+          email: {
+            key: '01iqeHr_Fxn8kukwxs4T6Q4A',
+            token: '8TvGhTGjFwnDEnl3twqjWJidqylH0_L9jxry-3-I3YU'
+          }
+        },
+
+        {
+          name: 'Яна',
+          about: 'доцент, «крышует» проект',
+          vk: 'https://vk.com/id297003875',
+          email: {
+            key: '01NwdxQLAH4bVYVgSxQydqhA',
+            token: 'jBX5Vm0ShMmNNmvtydg7XYBKqLWMyddZrJRkxs4vyNM'
+          }
+        }
+
+      ]
+    }),
+
+    computed: {
+      emails() {
+        const google = 'http://www.google.com/recaptcha/mailhide/d?'
+        return this.contacts.map(p => ({
+          href: `${google}k=${p.email.key}==&amp;c=${p.email.token}=`,
+          click: `window.open('${google}k\x3d${p.email.key}\x3d\x3d\x26c\x3d${p.email.token}\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300');return !1`
+        }))
+      }
+    }
+
   }
 </script>
 
@@ -84,21 +122,4 @@
   }
 
   p { margin: 0.8em 0 }
-
-  input[type=text], input[type=url], textarea {
-    width: 320px;
-  }
-
-  input, textarea {
-    background: transparent;
-    border: 1px solid #ccc;
-    font-family: monospace;
-    padding: 0.2em 0.4em;
-    line-height: 1.4em;
-    margin: 0.1em 0;
-  }
-
-  .at::after {
-    content: '@'
-  }
 </style>
