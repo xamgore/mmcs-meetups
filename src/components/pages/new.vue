@@ -98,7 +98,7 @@
 </template>
 
 <script>
-  import api from '@/api'
+  import api from '@/store/api'
 
   import event from '@/components/event'
   import extended from '@/components/event/extended'

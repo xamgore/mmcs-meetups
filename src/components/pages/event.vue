@@ -6,7 +6,7 @@
 
 <script>
   import event from '@/components/event/extended'
-  import store from '@/api/store'
+  import store from '@/store'
 
   export default {
     name: 'event-page',

@@ -21,7 +21,7 @@
 
 <script>
   import Event from '@/components/event/index'
-  import store from '@/api/store'
+  import store from '@/store'
 
   export default {
     name: 'main-page',

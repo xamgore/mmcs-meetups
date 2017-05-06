@@ -27,7 +27,6 @@
 </template>
 
 <script>
-  import api from '@/api'
   import eTitle from './parts/title'
   import eContent from './parts/content'
   import eAuthors from './parts/authors'

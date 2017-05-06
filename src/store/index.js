@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import api from './index'
+import api from './api'
 import extractAll from '@/utils/date'
 
 let store = window.store = new Vue({
