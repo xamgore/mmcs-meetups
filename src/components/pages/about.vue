@@ -54,7 +54,7 @@
       contacts: [
 
         {
-          name: 'Игорь',
+          name: 'Игорь Стребежев',
           about: 'разработчик и модератор',
           vk: 'https://vk.com/strebz',
           email: {
@@ -64,7 +64,7 @@
         },
 
         {
-          name: 'Яна',
+          name: 'Яна Демяненко',
           about: 'ответственная за сайт',
           vk: 'https://vk.com/id297003875',
           email: {
