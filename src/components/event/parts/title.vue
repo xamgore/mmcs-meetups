@@ -1,10 +1,10 @@
 <template>
 
   <div>
-    <router-link v-if="link" :to="e.link" v-text="e.title"/>
+    <router-link v-if="!extended" :to="e.link" v-text="e.title"/>
     <span v-else v-text="e.title"/>
 
-    <span v-text="fullDate" class="date"/>
+    <span v-text="dateAndPlace" class="date"/>
   </div>
 
 </template>
@@ -12,7 +12,7 @@
 <script>
   export default {
     name: 'e-title',
-    props: ['e', 'link', 'no-time'],
+    props: ['e', 'no-time', 'extended'],
     computed: {
       fullDate() {
         const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
@@ -26,6 +26,13 @@
         let date = isToday ? 'сегодня в' : `${this.e.day} ${months[this.e.month - 1]}`
         let time = `${this.noTime ? '' : this.e.time || ''}`
         return `${date} ${time}`
+      },
+
+      dateAndPlace() {
+        let p = this.e.place
+        p = p && p.length && this.extended ? `,  ауд. ` + p : ''
+
+        return this.fullDate + p
       }
     }
   }

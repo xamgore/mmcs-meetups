@@ -1,7 +1,7 @@
 <template>
   <article :class="[e.theme]">
 
-    <header v-if="header"><e-title :e="e"/></header>
+    <header v-if="header"><e-title :e="e" :extended="true"/></header>
 
     <e-content :text="text"/>
 

@@ -1,7 +1,7 @@
 <template>
   <article :class="[e.theme, { compactly }]">
 
-    <header><e-title :e="e" :link="e.link" :no-time="noTime"/></header>
+    <header><e-title :e="e" :extended="false" :no-time="noTime"/></header>
 
     <e-content v-if="hasContent" :text="e.annotation"/>
 
