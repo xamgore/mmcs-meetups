@@ -65,7 +65,7 @@
 
         {
           name: 'Яна',
-          about: 'доцент, «крышует» проект',
+          about: 'ответственная за сайт',
           vk: 'https://vk.com/id297003875',
           email: {
             key: '01NwdxQLAH4bVYVgSxQydqhA',
