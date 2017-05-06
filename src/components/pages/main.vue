@@ -20,8 +20,8 @@
 </template>
 
 <script>
-  import Event from '../event/index'
-  import store from '../../api/store'
+  import Event from '@/components/event/index'
+  import store from '@/api/store'
 
   export default {
     name: 'main-page',

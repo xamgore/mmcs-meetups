@@ -5,8 +5,8 @@
 </template>
 
 <script>
-  import event from '../event/extended'
-  import store from '../../api/store'
+  import event from '@/components/event/extended'
+  import store from '@/api/store'
 
   export default {
     name: 'event-page',

@@ -98,12 +98,11 @@
 </template>
 
 <script>
-  import event from '../event'
-  import extended from '../event/extended'
-  import { transliterate } from '../event/translit'
-  import extractAll from '@/utils/date'
+  import api from '@/api'
 
-  import api from '../../api'
+  import event from '@/components/event'
+  import extended from '@/components/event/extended'
+  import extractAll from '@/utils/date'
 
   export default {
     name: 'add-new-page',
