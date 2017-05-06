@@ -101,6 +101,7 @@
   import event from '../event'
   import extended from '../event/extended'
   import { transliterate } from '../event/translit'
+  import extractAll from '@/utils/date'
 
   import api from '../../api'
 
@@ -157,7 +158,8 @@
           date: this.s.date,
           time: this.s.time,
           link: this.link,
-          theme: this.s.theme
+          theme: this.s.theme,
+          ...extractAll(this.s.date, new Date())
         }
       },
 
