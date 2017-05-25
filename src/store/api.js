@@ -2,12 +2,16 @@ import axios from 'axios'
 import data from './data'
 
 let axio = axios.create({
-  baseURL: `${window.location.protocol}//${window.location.hostname}:3001/api/v17`
+  baseURL: `${window.location.protocol}//${window.location.hostname}/api/v17`
 })
 
 let dev = {}
 
 if (process.env.NODE_ENV === 'development') {
+  axio = axios.create({
+    baseURL: `${window.location.protocol}//${window.location.hostname}:3001/api/v17`
+  })
+
   dev = {
     events: {
       index: () => new Promise((res, rej) => res({
