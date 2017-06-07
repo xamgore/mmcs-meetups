@@ -3,6 +3,10 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+import AdminAuth from '@/components/pages/admin/auth'
+import AdminPage from '@/components/pages/admin/index'
+import ProposalsPage from '@/components/pages/admin/proposals'
+
 import EventPage from '@/components/pages/event'
 import AboutPage from '@/components/pages/about'
 import MainPage from '@/components/pages/main'
@@ -12,6 +16,18 @@ export default new Router({
   mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
+    {
+      path: '/admin',
+      component: AdminAuth,
+      children: [
+        {
+          path: '/',
+          name: 'proposals',
+          component: ProposalsPage
+        }
+      ]
+    },
+
     {
       path: '/new',
       name: 'new',

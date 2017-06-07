@@ -23,6 +23,11 @@ if (process.env.NODE_ENV === 'development') {
 
       create: (event, pass) => new Promise((res, rej) =>
         res(data.push(event)))
+    },
+
+    admin: {
+      auth: pass => new Promise((res, rej) =>
+        pass === 'mmcs' ? res() : rej())
     }
   }
 }
@@ -32,6 +37,10 @@ let prod = {
     index: () => axio.get('/events'),
     show: link => axio.get(`/events/${link}`),
     create: (event, pass) => axio.post(`/events`, { event, pass })
+  },
+
+  admin: {
+    auth: pass => axio.get(`/auth`, { pass })
   }
 }
 

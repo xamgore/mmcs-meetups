@@ -23,6 +23,11 @@
                       (this.e.month === t.getMonth() + 1) &&
                       (this.e.day === t.getDate())
 
+        if (typeof this.e.day === 'undefined') {
+          console.warn('Event doesn\'t has {day, month, year} fields.')
+          return ''
+        }
+
         let date = isToday ? 'сегодня в' : `${this.e.day} ${months[this.e.month - 1]}`
         let time = `${this.noTime ? '' : this.e.time || ''}`
         return `${date} ${time}`
@@ -52,5 +57,9 @@
     padding-left: 0.3em;
     color: #777;
     white-space: nowrap;
+  }
+
+  .date:empty {
+    padding: 0
   }
 </style>

@@ -3,7 +3,11 @@ import api from './api'
 import extractAll from '@/utils/date'
 
 let store = window.store = new Vue({
-  data: { now: new Date(2017, 2, 30), raw_events: null },
+  data: {
+    now: new Date(2017, 2, 30),
+    raw_events: null,
+    admin_pass: null
+  },
   methods: {
     fetchAll() {
       api.events.index().then(res => { this.raw_events = res.data })
@@ -18,9 +22,18 @@ let store = window.store = new Vue({
           ? this.raw_events.push(res.data)
           : this.$set(this.raw_events, idx, res.data)
       })
+    },
+
+    adminSignIn(pass) {
+      api.admin.auth(pass)
+        .then(_ => { this.admin_pass = pass })
     }
   },
   computed: {
+    proposed_events() {
+      return this.events
+    },
+
     events() {
       if (this.raw_events === null) return null
 
