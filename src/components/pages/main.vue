@@ -40,7 +40,7 @@
 
 <style scoped>
   .page {
-    margin-left: -5.24%;
+    margin-left: -2.4em;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -49,7 +49,8 @@
   section {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 5%;
+    padding-left: 2.4em;
+    margin-right: -2.4em;
     flex: none;
   }
 
@@ -73,9 +74,11 @@
   }
 
   @media screen and (max-width: 500px) {
+    section { margin-right: 0 }
+
     section.more {
-      margin-left: 5%;
-      margin-right: 1em;
+      margin-left: 1.4em;
+      margin-right: 1.4em;
     }
   }
 </style>

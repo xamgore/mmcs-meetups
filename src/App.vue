@@ -26,6 +26,8 @@
 </script>
 
 <style scoped>
+  @import "style.css";
+
   h1 {
     font-family: Lora, Roboto, serif;
     padding: 0 0.5em;
@@ -104,7 +106,10 @@
   }
 
   @media screen and (min-width: 500px) {
-    #app { padding-left: 5% }
+    #app {
+      padding-left: 2.4em;
+      padding-right: 2.4em;
+    }
   }
 
   a {
@@ -113,7 +118,7 @@
     cursor: pointer;
   }
 
-  a:hover,a:focus,a:active {
+  a:hover,a:active {
     text-decoration: underline;
   }
 

@@ -67,7 +67,7 @@
     article {
       max-width: 400px;
       min-width: 400px;
-      margin-right: 5%;
+      margin-right: 2em;
     }
   }
 

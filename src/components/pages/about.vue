@@ -2,13 +2,13 @@
   <article class="page">
     <h3>Какую проблему решает этот сайт?</h3>
 
-    Здесь собраны все семинары, митапы и классные события,
+    <p>Здесь собраны все семинары, митапы и классные события,
     которые происходят на мехмате. Всегда можно заглянуть и найти что-нибудь интересное.
 
 
     <h3>Как можно подписаться?</h3>
 
-    Пока что у нас есть канал в телеграмме
+    <p>Пока что у нас есть канал в телеграмме
     <a href="https://t.me/mmcs_meetups">@mmcs_meetups</a>,
     новости в нём появляются при анонсе мероприятия и повторно за 4 часа.
     Скоро сделаем твиттер-аккаунт и паблик вконтакте.
@@ -16,8 +16,7 @@
 
     <h3>Как добавить событие?</h3>
 
-    На данный момент доступ к админке имеют только
-    <u title="организаторы мероприятий">доверенные</u> лица.
+    <p>На данный момент доступ к админке имеют только <i>доверенные</i> лица.
     Можно написать на почту (контакты ниже), и мы сами опубликуем мероприятие.
 
 
@@ -41,7 +40,7 @@
         <a :href="p.vk">vk</a> /
         <a :href="emails[i].href" :onclick="emails[i].click">email</a>
       </span>
-    </p>
+
 
   </article>
 </template>
@@ -97,7 +96,7 @@
     font-size: 1.1em;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 550px) {
     .page {
       margin-left: 10px;
       margin-right: 10px;
@@ -106,20 +105,15 @@
   }
 
   @media screen and (min-width: 600px) {
-    article { width: 600px }
+    article { max-width: 540px }
   }
 
   h3 {
     margin-top: 1.4em;
-    margin-bottom: 0.7em;
+    margin-bottom: 0;
   }
 
   h3:first-of-type { margin-top: 0 }
-
-  u {
-    text-decoration-style: dotted;
-    cursor: help;
-  }
 
   p { margin: 0.8em 0 }
 </style>
